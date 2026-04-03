@@ -1,0 +1,16 @@
+{
+    "producto": {
+        "id": 456,
+        "nombre": "Disyuntor",
+        "descripcion": "dispositivo de seguridad eléctrica fundamental que corta automáticamente el flujo de corriente al detectar fugas (protegiendo personas) o sobrecargas/cortocircuitos (protegiendo la instalación)",
+        "precio": 80.000,
+        "stock": 10,
+        "categorias": ["seguridad", "electricidad"],
+        "caracteristicas": {
+            "tipo": "tetrapolar",
+            "marca": "Schneider",
+            "voltaje": "380V",
+            "corriente_nominal": "40A"
+        }
+    }
+}
