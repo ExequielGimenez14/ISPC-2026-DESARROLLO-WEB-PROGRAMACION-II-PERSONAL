@@ -19,6 +19,19 @@ class UserView(APIView):
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
+    def put(self, request, pk):
+        user = User.objects.get(pk=pk)
+        serializer = UserSerializer(user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+
+    def delete(self, request, pk):
+        user = User.objects.get(pk=pk)
+        user.delete()
+        return Response(status=204)
+
 
 class RoleView(APIView):
 
@@ -33,4 +46,16 @@ class RoleView(APIView):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
-    
+
+    def put(self, request, pk):
+        role = Role.objects.get(pk=pk)
+        serializer = RoleSerializer(role, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+
+    def delete(self, request, pk):
+        role = Role.objects.get(pk=pk)
+        role.delete()
+        return Response(status=204)
